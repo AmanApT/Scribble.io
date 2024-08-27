@@ -7,6 +7,8 @@ import {
 } from "@kinde-oss/kinde-auth-nextjs";
 import { useConvex, useMutation, useQuery } from "convex/react";
 import React, { useEffect } from "react";
+import Header from "./_components/Header";
+import FileList from "./_components/FileList";
 
 const Dashboard = () => {
   const { user }: any = useKindeBrowserClient();
@@ -33,8 +35,10 @@ const Dashboard = () => {
   }
 
   return (
-    <div>
-  
+    <div className="p-6" >
+
+    <Header />
+    <FileList />
       {/* <LogoutLink>
         <Button>Log Out</Button>
       </LogoutLink> */}

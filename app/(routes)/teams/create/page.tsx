@@ -26,11 +26,11 @@ const Create = () => {
   }
 
   return (
-    <div className='bg-black h-screen text-white'>
+    <div className='bg-hero-pattern bg-cover h-screen text-white'>
 
    
     <div className='flex gap-2 items-center p-16 '>
-       <svg className="h-3 md:h-5 " viewBox="0 0 1699 660">
+       <svg className="h-3 md:h-5 cursor-pointer" viewBox="0 0 1699 660">
             <path
               fill="#EC2C40"
               d="M804.7,660.3H50c-38.8,0-62.8-55-42.7-98.2L253,31.4C262,11.9,278.2,0,295.7,0h509V660.3z"
