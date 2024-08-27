@@ -25,7 +25,7 @@ const Workspace = ({ params }: any) => {
 
   return (
     <div className="bg-hero-pattern bg-cover ">
-      <WorkspaceHeader activeTab={activeTab} setActiveTab={setActiveTab} onSave={() => setTriggerSave(Date.now())} />
+      <WorkspaceHeader fileData={fileData} activeTab={activeTab} setActiveTab={setActiveTab} onSave={() => setTriggerSave(Date.now())} />
       <div className="grid grid-cols-1 md:grid-cols-2">
        
           <div

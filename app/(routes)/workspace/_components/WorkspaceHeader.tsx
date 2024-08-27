@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Link, Save } from "lucide-react";
-import React from "react";
+import React, { useContext } from "react";
+import { FileListContext } from "../../dashboard/_contexts/FileListContext";
 
-const WorkspaceHeader = ({ onSave, activeTab, setActiveTab }: any) => {
+const WorkspaceHeader = ({ fileData,onSave, activeTab, setActiveTab }: any) => {
+
   return (
     <div className="flex justify-between  p-4">
       <div className="flex gap-2 items-center">
@@ -16,7 +18,7 @@ const WorkspaceHeader = ({ onSave, activeTab, setActiveTab }: any) => {
             d="M891.3,0L1646,0c38.8,0,62.8,55,42.7,98.2L1443,628.9c-9,19.5-25.2,31.4-42.7,31.4h-509V0z"
           ></path>
         </svg>
-        <span className=" text-white">File Name</span>
+        <span className=" text-white">{fileData?.fileName}</span>
       </div>
       <div className="text-white flex items-center text-sm cursor-pointer font-bold">
         <span style={{background : activeTab ==-1 ? "rgb(147,157,253)" : ""}} onClick={()=>setActiveTab(-1)} className="p-2 text-center rounded-tl-md rounded-bl-md border-blue-300 hover:bg-slate-600 border-[0.5px]">Document</span>
