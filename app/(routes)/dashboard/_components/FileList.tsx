@@ -25,9 +25,9 @@ const FileList = () => {
   }, [fileList]);
   console.log("fileList", fileList);
   return (
-    <div className="text-white p-2 dark">
+    <div className="text-white p-2 dark overflow-x-scroll">
       <div className=" mt-7">
-        <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm dark:divide-gray-700 dark:bg-gray-900">
+        <table className="overflow-x-scroll w-10rem md:overflow-hidden md:w-full divide-y-2 divide-gray-200 bg-white text-sm dark:divide-gray-700 dark:bg-gray-900">
           <thead className="text-left">
             <tr>
               <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">

@@ -1,7 +1,8 @@
-import { LoginLink, RegisterLink } from "@kinde-oss/kinde-auth-nextjs";
+import { LoginLink, RegisterLink, useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import React from "react";
 
 const Header = () => {
+  const {user} = useKindeBrowserClient();
   return (
     <header className="bg-black">
       <div className="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
@@ -97,28 +98,31 @@ const Header = () => {
 
           <div className="flex items-center gap-4">
             <div className="sm:flex sm:gap-4">
-                <a
+                <p
                   className="block rounded-md  px-5 py-2.5 text-sm font-medium text-white transition "
-                  href="#"
+                
                   >
               <LoginLink postLoginRedirectURL="/dashboard">
-                  Login
+              {
+                user ? "Dashboard" : "Login"
+              }
+                  
               </LoginLink>
-                </a>
+                </p>
 
-              <a
+              <p
                 className="hidden rounded-md bg-white text-black px-5 py-2.5 text-sm font-medium transition hover:opacity-90 sm:block"
-                href="#"
+               
               >
                 <RegisterLink>Register</RegisterLink>
-              </a>
+              </p>
             </div>
 
-            <button className="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden">
-              <span className="sr-only">Toggle menu</span>
+            <button className="block rounded bg-gray-900 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden">
+              <span className="sr-only text-blue-500">Toggle menu</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="size-5"
+                className="size-5 text-blue-500"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
