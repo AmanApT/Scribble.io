@@ -16,6 +16,7 @@
     "@editorjs/list": "^1.10.0",
     "@editorjs/quote": "^2.7.2",
     "@editorjs/table": "^2.4.1",
+    "@excalidraw/excalidraw": "^0.17.6",
     "@kinde-oss/kinde-auth-nextjs": "^2.3.6",
     "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-dropdown-menu": "^2.1.1",

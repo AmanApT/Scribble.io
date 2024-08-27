@@ -97,8 +97,8 @@ const Editor = ({ onSaveTrigger, fileId,fileData }: {onSaveTrigger:any, fileId:s
         },
       },
       holder: "editorjs",
-    //   data:rawData
-      data: fileData?  JSON.parse(fileData.document) : rawData
+   
+      data: fileData.document?  JSON.parse(fileData.document) : rawData
     });
     ref.current = editor;
   };

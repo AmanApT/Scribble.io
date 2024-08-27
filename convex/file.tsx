@@ -37,6 +37,15 @@ export const updateFile = mutation({
     return await ctx.db.patch(args._id, { document: args.document });
   },
 });
+export const updateWhiteboard = mutation({
+  args: {
+    _id: v.id("files"),
+    whiteboard: v.string(),
+  },
+  handler: async (ctx, args) => {
+    return await ctx.db.patch(args._id, { whiteboard: args.whiteboard });
+  },
+});
 // when we want multiple files, we use query, but to get only a single file then we use get
 
 export const getFileById = query({

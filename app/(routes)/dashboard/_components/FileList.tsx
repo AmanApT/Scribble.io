@@ -12,7 +12,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
 import { useRouter } from "next/navigation";
 
 const FileList = () => {
@@ -46,51 +46,54 @@ const FileList = () => {
           </thead>
 
           <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-            {fileListLocal &&
-              fileListLocal.map(
-                (eachFile: File) => (
-                  <tr
-                  onClick={()=>{router.push('/workspace/'+eachFile?._id)}}
-                    key={eachFile?._id}
-                    className="odd:bg-gray-50 dark:odd:bg-gray-800/50 cursor-pointer"
-                  >
-                    <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
-                      {eachFile?.fileName}
-                    </td>
-                    <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
-                      {moment(eachFile?._creationTime).format("Do MMM, YYYY")}
-                    </td>
-                    <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
-                      {moment(eachFile?._creationTime).format("Do MMM, YYYY")}
-                    </td>
-                    <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
-                      <Image
-                        className="rounded-full"
-                        src={user?.picture}
-                        width={25}
-                        height={25}
-                        alt="user"
-                      />
-                    </td>
-                    <td>
-                      <DropdownMenu>
-  <DropdownMenuTrigger>
-
-
-                      <MoreHorizontal size={15} />
-  </DropdownMenuTrigger>
-  <DropdownMenuContent className="">
-   
-   
-    <DropdownMenuItem className="gap-3 cursor-pointer">
-      <Archive size={17} /> Archive
-    </DropdownMenuItem>
-  </DropdownMenuContent>
-</DropdownMenu>
-                    </td>
-                  </tr>
-                )
-              )}
+            {fileListLocal.length > 0 ? (
+              fileListLocal.map((eachFile: File) => (
+                <tr
+                  onClick={() => {
+                    router.push("/workspace/" + eachFile?._id);
+                  }}
+                  key={eachFile?._id}
+                  className="odd:bg-gray-50 dark:odd:bg-gray-800/50 cursor-pointer"
+                >
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
+                    {eachFile?.fileName}
+                  </td>
+                  <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
+                    {moment(eachFile?._creationTime).format("Do MMM, YYYY")}
+                  </td>
+                  <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
+                    {moment(eachFile?._creationTime).format("Do MMM, YYYY")}
+                  </td>
+                  <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
+                    <Image
+                      className="rounded-full"
+                      src={user?.picture}
+                      width={25}
+                      height={25}
+                      alt="user"
+                    />
+                  </td>
+                  <td>
+                    <DropdownMenu>
+                      <DropdownMenuTrigger>
+                        <MoreHorizontal size={15} />
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent className="">
+                        <DropdownMenuItem className="gap-3 cursor-pointer">
+                          <Archive size={17} /> Archive
+                        </DropdownMenuItem>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <>
+                <h2 className="text-white w-full p-2">
+                  No Files Created 
+                </h2>
+              </>
+            )}
           </tbody>
         </table>
       </div>
