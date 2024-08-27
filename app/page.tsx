@@ -5,6 +5,8 @@ import Header from "./_components/Header";
 import Hero from "./_components/Hero";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import { useEffect } from "react";
+import Features from "./_components/Features";
+import Footer from "./_components/Footer";
 
 export default function Home() {
 
@@ -18,6 +20,8 @@ console.log("User Details : ", user)
  <div>
  <Header />
  <Hero />
+ <Features />
+ <Footer />
  </div>
   );
 }

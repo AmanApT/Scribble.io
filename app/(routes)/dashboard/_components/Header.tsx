@@ -7,8 +7,11 @@ import {
 import { LogOut, Send } from "lucide-react";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+interface HeaderProps {
+  setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
+}
 
-const Header = () => {
+const Header: React.FC<HeaderProps> = ({ setSearchQuery }) =>  {
   const { user }: any = useKindeBrowserClient();
   const [innerWidth, setInnerWidth] = useState(0);
   useEffect(() => {
@@ -20,7 +23,7 @@ const Header = () => {
  
   return (
     <div className="flex gap-2 justify-end items-center ">
-      <Input className="hidden md:block w-[30%]" placeholder="Search" />
+      <Input  onChange={(e)=>setSearchQuery(e.target.value)} className="hidden md:block w-[30%]" placeholder="Search" />
       <Image
         className="rounded-full"
         src={user?.picture}

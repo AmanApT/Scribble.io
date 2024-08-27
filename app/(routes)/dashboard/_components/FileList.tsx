@@ -15,15 +15,20 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useRouter } from "next/navigation";
 
-const FileList = () => {
+const FileList = ({searchQuery}:{searchQuery:string}) => {
   const { fileList } = useContext(FileListContext)!;
   const [fileListLocal, setFileListLocal] = useState<File[]>([]);
   const { user }: any = useKindeBrowserClient();
   const router = useRouter();
+
   useEffect(() => {
-    setFileListLocal(fileList);
-  }, [fileList]);
+    const filteredFiles = fileList.filter(file =>
+      file.fileName.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setFileListLocal(filteredFiles);
+  }, [fileList, searchQuery]);
   console.log("fileList", fileList);
+  
   return (
     <div className="text-white p-2 dark overflow-x-scroll">
       <div className=" mt-7">

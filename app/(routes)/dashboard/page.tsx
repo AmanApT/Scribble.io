@@ -6,20 +6,22 @@ import {
   useKindeBrowserClient,
 } from "@kinde-oss/kinde-auth-nextjs";
 import { useConvex, useMutation, useQuery } from "convex/react";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./_components/Header";
 import FileList from "./_components/FileList";
 
 const Dashboard = () => {
   const { user }: any = useKindeBrowserClient();
   const convex = useConvex();
-
+  const[searchQuery, setSearchQuery] = useState<string>("")
   const createUser = useMutation(api.user.addUser)
   useEffect(() => {
     if (user) {
       checkUser();
     }
   }, [user]);
+
+
 
   const checkUser = async()=>{
     const result = await convex.query(api.user.getUser, { email: user?.email });
@@ -37,8 +39,8 @@ const Dashboard = () => {
   return (
     <div className="p-6" >
 
-    <Header />
-    <FileList />
+    <Header setSearchQuery={setSearchQuery} />
+    <FileList searchQuery={searchQuery} />
       {/* <LogoutLink>
         <Button>Log Out</Button>
       </LogoutLink> */}
