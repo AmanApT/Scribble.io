@@ -133,7 +133,7 @@ const Editor = ({ onSaveTrigger, fileId,fileData }: {onSaveTrigger:any, fileId:s
   };
 
   return (
-    <div className="p-2">
+    <div className="p-2 ">
       <div id="editorjs"></div>
     </div>
   );
