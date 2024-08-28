@@ -1,4 +1,4 @@
-Introducing [Scribble.io]([https://nextjs.org/](https://scribble-io-teal.vercel.app/)) project made by [`Aman Ap`](https://github.com/AmanApT).
+Introducing [Scribble.io](https://scribble-io-teal.vercel.app/) project made by [`Aman Ap`](https://github.com/AmanApT).
 
 # Scribble.io
 
@@ -29,7 +29,7 @@ First, install the packages:
 npm install
 ```
 
-Secondly, setup your environment variables at [Kinde](https://kinde.com/) and [Convex DB] (https://www.convex.dev/)
+Secondly, setup your environment variables at [Kinde](https://kinde.com/) and [Convex DB](https://www.convex.dev/)
 
 At last, spin up the servers:
 
